@@ -1,5 +1,74 @@
 .workspace-container {
   display: flex;
-  height: calc(100vh - 60px);
-  position: relative;
+  height: 100vh;
+  background-color: #f9f9fb;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sidebar {
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.input-textarea {
+  flex-grow: 1;
+  height: 150px;
+  padding: 12px;
+  font-size: 15px;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+}
+
+.sidebar-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.template-button,
+.generate-button {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease-in-out;
+}
+
+.template-button {
+  background-color: #e8f0fe;
+  color: #3b82f6;
+}
+
+.generate-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.generate-button:hover {
+  background-color: #2563eb;
+}
+
+.canvas-section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
 }

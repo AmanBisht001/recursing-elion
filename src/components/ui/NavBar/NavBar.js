@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SaveModal from "../../modals/SaveModal";
+import Sidebar from "../Sidebar/Sidebar";
 import "./NavBar.css";
 
 export default function NavBar({ darkMode, setDarkMode }) {
   const [showSaveModal, setShowSaveModal] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="logo">
+        <div className="logo" onClick={() => setShowSidebar(true)}>
           <span className="logo-icon">⟁</span>
           <span className="logo-text">FlowCraft</span>
-        </Link>
+        </div>
       </div>
 
       <div className="navbar-right">
@@ -33,6 +35,8 @@ export default function NavBar({ darkMode, setDarkMode }) {
       </div>
 
       {showSaveModal && <SaveModal onClose={() => setShowSaveModal(false)} />}
+
+      <Sidebar isOpen={showSidebar} onClose={() => setShowSidebar(false)} />
     </nav>
   );
 }

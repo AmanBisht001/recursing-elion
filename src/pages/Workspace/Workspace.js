@@ -1,29 +1,44 @@
-import { useEffect } from "react";
-import { useFlowStore } from "../../state/store";
-import FlowCanvas from "../../components/core/Canvas/FlowCanvas";
-import NodeToolbar from "../../components/core/Toolbar/NodeToolbar";
-import { loadFromLocal } from "../../utils/storage";
+import React, { useState } from "react";
 import "./Workspace.css";
+import FlowCanvas from "../../components/core/Canvas/FlowCanvas";
 
 export default function Workspace() {
-  const { setNodes, setEdges } = useFlowStore();
+  const [prompt, setPrompt] = useState("");
 
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const flowchartId = params.get("id");
-    if (flowchartId) {
-      const savedFlowchart = loadFromLocal(flowchartId);
-      if (savedFlowchart) {
-        setNodes(savedFlowchart.nodes);
-        setEdges(savedFlowchart.edges);
-      }
-    }
-  }, [setNodes, setEdges]);
+  const handleGenerate = () => {
+    console.log("Generate flowchart from:", prompt);
+    // This is where you'd plug in logic to convert text to flowchart
+  };
 
   return (
     <div className="workspace-container">
-      <NodeToolbar />
-      <FlowCanvas />
+      <aside className="sidebar">
+        <select className="input-select">
+          <option>English</option>
+        </select>
+
+        <select className="input-select">
+          <option>Flowchart</option>
+        </select>
+
+        <textarea
+          className="input-textarea"
+          placeholder="Generate a flowchart for making coffee"
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
+        ></textarea>
+
+        <div className="sidebar-buttons">
+          <button className="template-button">📁 Templates</button>
+          <button className="generate-button" onClick={handleGenerate}>
+            ⚡ Generate
+          </button>
+        </div>
+      </aside>
+
+      <section className="canvas-section">
+        <FlowCanvas />
+      </section>
     </div>
   );
 }

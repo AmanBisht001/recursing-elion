@@ -7,15 +7,26 @@ import "./styles/App.css";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className={`app ${darkMode ? "dark" : "light"}`}>
+    <div
+      className={`app ${darkMode ? "dark" : "light"} ${
+        sidebarOpen ? "sidebar-open" : ""
+      }`}
+    >
       <Router>
-        <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/workspace" element={<Workspace />} />
-        </Routes>
+        <NavBar
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+          onSidebarToggle={setSidebarOpen}
+        />
+        <div className="app-content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/workspace" element={<Workspace />} />
+          </Routes>
+        </div>
       </Router>
     </div>
   );

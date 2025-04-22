@@ -1,14 +1,12 @@
-import useStore from "../../../state/store";
-// ... rest of the code remains the same
-import { useRef, useEffect } from "react";
-import useStore from "../../../state/store";
+import { useRef, useState } from "react";
+import { useFlowStore } from "../../../state/store";
 import Node from "./Node";
 import Edge from "./Edge";
 import "./FlowCanvas.css";
 
 export default function FlowCanvas() {
   const canvasRef = useRef(null);
-  const { nodes, edges, addNode } = useStore();
+  const { nodes, edges, addNode } = useFlowStore();
   const [zoom, setZoom] = useState(1);
 
   const handleCanvasClick = (e) => {

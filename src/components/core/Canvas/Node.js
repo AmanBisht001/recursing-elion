@@ -1,17 +1,13 @@
-import useStore from "../../../state/store";
-// ... rest of the code remains the same
 import { useDrag } from "react-dnd";
-import { useStore } from "../../../state/store";
+import { useFlowStore } from "../../../state/store";
 import "./Node.css";
 
 export default function Node({ node }) {
-  const { updateNode } = useStore();
+  const { updateNode } = useFlowStore();
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "NODE",
     item: { id: node.id },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
+    collect: (monitor) => ({ isDragging: !!monitor.isDragging() }),
   }));
 
   const handleTextChange = (e) => {
@@ -22,16 +18,11 @@ export default function Node({ node }) {
     <div
       ref={drag}
       className={`node-container ${isDragging ? "dragging" : ""}`}
-      style={{
-        left: `${node.x}px`,
-        top: `${node.y}px`,
-      }}
+      style={{ left: `${node.x}px`, top: `${node.y}px` }}
     >
       <div className={`node ${node.type}-node`}>
         {node.type === "decision" ? (
-          <div className="decision-content">
-            <span>{node.text}</span>
-          </div>
+          <div className="decision-content">{node.text}</div>
         ) : (
           <input
             type="text"

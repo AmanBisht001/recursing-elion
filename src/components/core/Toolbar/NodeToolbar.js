@@ -1,7 +1,5 @@
-import { useStore } from "../../../state/store";
-// ... rest of the code remains the same
 import { useDrag } from "react-dnd";
-import { useStore } from "../../../state/store";
+import { useFlowStore } from "../../../state/store";
 import "./NodeToolbar.css";
 
 const nodeTypes = [
@@ -12,7 +10,7 @@ const nodeTypes = [
 ];
 
 export default function NodeToolbar() {
-  const { addNode } = useStore();
+  const { addNode } = useFlowStore();
 
   return (
     <div className="node-toolbar">

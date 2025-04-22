@@ -1,11 +1,10 @@
 import { useState } from "react";
-import useStore from "../../state/store"; // Changed to default import
+import { useFlowStore } from "../../state/store";
 import { saveToLocal } from "../../utils/storage";
 import "./SaveModal.css";
 
 export default function SaveModal({ onClose }) {
-  const { nodes, edges } = useStore();
-  // const { nodes, edges } = useStore();
+  const { nodes, edges } = useFlowStore();
   const [name, setName] = useState("Untitled Flowchart");
   const [error, setError] = useState("");
 

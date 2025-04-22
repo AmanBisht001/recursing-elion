@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const store = create((set) => ({
+export const useFlowStore = create((set) => ({
   nodes: [],
   edges: [],
   selectedNode: null,
@@ -32,5 +32,3 @@ const store = create((set) => ({
       edges: state.edges.filter((edge) => edge.from !== id && edge.to !== id),
     })),
 }));
-
-export default store;

@@ -1,18 +1,16 @@
 import { useEffect } from "react";
+import { useFlowStore } from "../../state/store";
 import FlowCanvas from "../../components/core/Canvas/FlowCanvas";
 import NodeToolbar from "../../components/core/Toolbar/NodeToolbar";
-import useStore from "../../state/store"; // Changed to default import
 import { loadFromLocal } from "../../utils/storage";
 import "./Workspace.css";
 
 export default function Workspace() {
-  const { setNodes, setEdges } = useStore();
+  const { setNodes, setEdges } = useFlowStore();
 
   useEffect(() => {
-    // Load any saved flowchart if ID exists in URL
     const params = new URLSearchParams(window.location.search);
     const flowchartId = params.get("id");
-
     if (flowchartId) {
       const savedFlowchart = loadFromLocal(flowchartId);
       if (savedFlowchart) {

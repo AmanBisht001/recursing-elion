@@ -24,3 +24,16 @@
   filter: brightness(0.7);
   pointer-events: none;
 }
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #333333;
+  --border-color: #e0e0e0;
+  --bg-hover: #f5f5f5;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --border-color: #404040;
+  --bg-hover: #2d2d2d;
+}

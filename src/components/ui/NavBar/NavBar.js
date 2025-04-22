@@ -18,6 +18,10 @@ export default function NavBar({ darkMode, setDarkMode }) {
       </div>
 
       <div className="navbar-right">
+        <Link to="/" className="nav-btn dashboard-btn">
+          Dashboard
+        </Link>
+        
         <button className="nav-btn" onClick={() => setDarkMode(!darkMode)}>
           {darkMode ? "☀️" : "🌙"}
         </button>

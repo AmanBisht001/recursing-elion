@@ -1,3 +1,5 @@
+import { useStore } from "../../../state/store";
+// ... rest of the code remains the same
 import { useDrag } from "react-dnd";
 import { useStore } from "../../../state/store";
 import "./NodeToolbar.css";

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useStore = create((set) => ({
+const store = create((set) => ({
   nodes: [],
   edges: [],
   selectedNode: null,
@@ -33,4 +33,4 @@ const useStore = create((set) => ({
     })),
 }));
 
-export default useStore;
+export default store;

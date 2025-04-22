@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import FlowCanvas from "../../components/core/Canvas/FlowCanvas";
 import NodeToolbar from "../../components/core/Toolbar/NodeToolbar";
-import { useStore } from "../../state/store";
+import useStore from "../../state/store"; // Changed to default import
 import { loadFromLocal } from "../../utils/storage";
 import "./Workspace.css";
 

@@ -1,5 +1,7 @@
+import useStore from "../../../state/store";
+// ... rest of the code remains the same
 import { useRef, useEffect } from "react";
-import { useStore } from "../../../state/store";
+import useStore from "../../../state/store";
 import Node from "./Node";
 import Edge from "./Edge";
 import "./FlowCanvas.css";

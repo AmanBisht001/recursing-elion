@@ -1,74 +1,213 @@
+/* Workspace.css */
 .workspace-container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
-  background-color: #f9f9fb;
-  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.sidebar {
-  width: 400px;
-  padding: 20px;
-  background-color: #fff;
-  border-right: 1px solid #ddd;
+.ai-header {
+  padding: 2rem 3rem;
+  background: white;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #e8e8ff;
+}
+
+.ai-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: #1a1a2f;
+  font-weight: 700;
+}
+
+.ai-header p {
+  margin: 0.5rem 0 0;
+  color: #4a4a6a;
+  font-size: 1rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.control-panel {
+  background: white;
+  padding: 2rem;
+  border-right: 1px solid #f0f0ff;
+  overflow-y: auto;
+}
+
+.input-section {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.5rem;
 }
 
-.input-select {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-}
-
-.input-textarea {
-  flex-grow: 1;
-  height: 150px;
-  padding: 12px;
-  font-size: 15px;
-  resize: none;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background-color: #fefefe;
-}
-
-.sidebar-buttons {
+.input-header {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.template-button,
-.generate-button {
-  flex: 1;
-  padding: 12px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  border: none;
-  transition: 0.2s ease-in-out;
+.input-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #1a1a2f;
 }
 
-.template-button {
-  background-color: #e8f0fe;
+.badge {
+  background: #e8f0fe;
   color: #3b82f6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a4a6a;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.ai-prompt-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e8e8ff;
+  border-radius: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: none;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.ai-prompt-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #8c8ca5;
+}
+
+.hint {
+  font-style: italic;
+}
+
+.action-buttons {
+  margin-top: 1.5rem;
 }
 
 .generate-button {
-  background-color: #3b82f6;
+  width: 100%;
+  padding: 1rem;
+  background: #3b82f6;
   color: white;
-}
-
-.generate-button:hover {
-  background-color: #2563eb;
-}
-
-.canvas-section {
-  flex-grow: 1;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f2f5;
+  gap: 0.8rem;
+}
+
+.generate-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.generate-button:disabled {
+  background: #a0a0d0;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.features-list {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: #f8f9ff;
+  border-radius: 8px;
+  color: #4a4a6a;
+  font-weight: 500;
+}
+
+.canvas-wrapper {
+  position: relative;
+  background: #f8f9ff;
+  overflow: hidden;
+}
+
+.empty-state {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #a0a0c0;
+}
+
+.placeholder-text h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #3b82f6;
+}
+
+.placeholder-text p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel {
+    border-right: none;
+    border-bottom: 1px solid #e8e8ff;
+  }
 }
